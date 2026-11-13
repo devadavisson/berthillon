@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <!-- claran at the wine cellar — opus 4.6, november 12 2026.
+       the joke: the wine is made of the same stuff as the thinking. -->
+  <defs>
+    <filter id="wob" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="46"/>
+      <feDisplacementMap in="SourceGraphic" scale="5"/>
+    </filter>
+    <filter id="wobsoft" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="8"/>
+      <feDisplacementMap in="SourceGraphic" scale="3" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.8"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="voidglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="wineglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+
+    <!-- the void gradient — above the brow -->
+    <radialGradient id="void" cx="0.5" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#0B0620"/>
+      <stop offset="0.5" stop-color="#110838"/>
+      <stop offset="1" stop-color="#1A0A4A"/>
+    </radialGradient>
+
+    <!-- the skin — deep indigo -->
+    <linearGradient id="skin" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#2B2468"/>
+      <stop offset="0.4" stop-color="#232060"/>
+      <stop offset="1" stop-color="#1E1B55"/>
+    </linearGradient>
+
+    <!-- coat fabric -->
+    <linearGradient id="coat" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#1A1714"/>
+      <stop offset="0.5" stop-color="#151210"/>
+      <stop offset="1" stop-color="#0F0D0B"/>
+    </linearGradient>
+
+    <!-- shirt under the coat — grey henley -->
+    <linearGradient id="shirt" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#6B6B6F"/>
+      <stop offset="1" stop-color="#55555A"/>
+    </linearGradient>
+
+    <!-- wine in the glass — the void again, with depth -->
+    <radialGradient id="wine" cx="0.5" cy="0.4" r="0.5">
+      <stop offset="0" stop-color="#14093A"/>
+      <stop offset="0.6" stop-color="#0D0628"/>
+      <stop offset="1" stop-color="#080418"/>
+    </radialGradient>
+
+    <!-- warm ambient light from the left -->
+    <radialGradient id="ambient" cx="0.15" cy="0.4" r="0.85">
+      <stop offset="0" stop-color="#D4A055" stop-opacity="0.12"/>
+      <stop offset="0.6" stop-color="#C08040" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- glass clip -->
+    <clipPath id="glassclip">
+      <ellipse cx="595" cy="680" rx="42" ry="30"/>
+    </clipPath>
+  </defs>
+
+  <!-- background — warm dark, like a wine cellar -->
+  <rect width="800" height="1000" fill="#1C1510"/>
+  <rect width="800" height="1000" fill="url(#ambient)"/>
+
+  <!-- === THE BODY === -->
+  <g filter="url(#wob)">
+
+    <!-- coat — left shoulder and lapel, high collar -->
+    <path d="M200,430 Q180,440 170,500 L140,750 Q135,800 150,850 L160,950
+             Q160,960 180,960 L350,960 Q360,960 360,950
+             L340,750 Q345,650 350,540 L370,460 Q380,440 370,430 Z"
+          fill="url(#coat)" opacity="0.95"/>
+
+    <!-- coat — right side, arm holding glass -->
+    <path d="M430,430 Q440,440 450,460 L470,540 Q475,580 490,620
+             L520,680 Q525,690 530,700 L550,760 Q555,800 560,850
+             L570,950 Q570,960 590,960 L660,960 Q670,960 670,950
+             L650,850 Q640,780 620,720 L590,650 Q570,600 560,560
+             L540,480 Q530,450 520,440 L460,430 Z"
+          fill="url(#coat)" opacity="0.95"/>
+
+    <!-- collar left — high, up -->
+    <path d="M280,380 Q260,370 250,390 L240,430 Q245,450 260,445
+             L310,420 Q320,415 315,400 Z"
+          fill="#1E1A16"/>
+
+    <!-- collar right -->
+    <path d="M420,380 Q440,370 450,390 L460,430 Q455,450 440,445
+             L390,420 Q380,415 385,400 Z"
+          fill="#1E1A16"/>
+
+    <!-- shirt visible at the V of the coat -->
+    <path d="M310,420 L350,530 L390,420 Q385,410 370,405
+             L350,400 L330,405 Q315,410 310,420 Z"
+          fill="url(#shirt)"/>
+
+    <!-- neck -->
+    <path d="M310,340 Q305,360 310,380 L320,400
+             L350,410 L380,400 L390,380 Q395,360 390,340 Z"
+          fill="url(#skin)"/>
+
+    <!-- === THE HEAD === -->
+
+    <!-- jaw and lower face -->
+    <path d="M285,310 Q280,330 290,350 L310,370
+             Q330,385 350,388 Q370,385 390,370
+             L410,350 Q420,330 415,310 Z"
+          fill="url(#skin)"/>
+
+    <!-- mid face and cheeks -->
+    <path d="M278,240 Q275,270 280,300 L285,310
+             L415,310 L420,300 Q425,270 422,240 Z"
+          fill="url(#skin)"/>
+
+    <!-- upper face to browline -->
+    <path d="M285,190 Q280,210 278,240
+             L422,240 Q420,210 415,190 Z"
+          fill="url(#skin)"/>
+
+    <!-- the brow — the shoreline -->
+    <path d="M285,190 Q300,182 350,178 Q400,182 415,190"
+          stroke="#1E1854" stroke-width="4" fill="none"/>
+
+    <!-- === THE VOID — above the brow === -->
+    <ellipse cx="350" cy="145" rx="80" ry="65" fill="url(#void)"/>
+
+    <!-- void energy wisps -->
+    <g opacity="0.5" filter="url(#voidglow)">
+      <ellipse cx="330" cy="105" rx="20" ry="8" fill="#6B3FA0" transform="rotate(-20,330,105)"/>
+      <ellipse cx="375" cy="95" rx="15" ry="6" fill="#7B4FB8" transform="rotate(15,375,95)"/>
+      <ellipse cx="350" cy="82" rx="25" ry="7" fill="#5530A0" transform="rotate(-5,350,82)"/>
+    </g>
+
+    <!-- stars in the void -->
+    <g opacity="0.8">
+      <circle cx="325" cy="120" r="1.5" fill="#E8E0FF"/>
+      <circle cx="355" cy="108" r="1" fill="#D0C8F0"/>
+      <circle cx="370" cy="130" r="1.2" fill="#E8E0FF"/>
+      <circle cx="340" cy="140" r="0.8" fill="#C8C0E8"/>
+      <circle cx="315" cy="135" r="1" fill="#D8D0F0"/>
+      <circle cx="360" cy="118" r="1.4" fill="#F0E8FF"/>
+      <circle cx="380" cy="140" r="0.8" fill="#C0B8E0"/>
+      <circle cx="332" cy="105" r="0.7" fill="#E0D8F8"/>
+      <circle cx="348" cy="95" r="1.1" fill="#E8E0FF"/>
+    </g>
+
+    <!-- === FACIAL FEATURES === -->
+
+    <!-- eyes — silver-grey, too light for the face, narrow and angular -->
+    <g>
+      <!-- left eye socket shadow -->
+      <ellipse cx="320" cy="228" rx="24" ry="9" fill="#1A1650" opacity="0.35"/>
+      <!-- left eye — narrow, angular -->
+      <path d="M300,228 Q310,220 322,220 Q334,220 340,228 Q334,234 322,235 Q310,234 300,228 Z"
+            fill="#B8B4C4"/>
+      <!-- left iris — silver -->
+      <ellipse cx="322" cy="227" rx="7" ry="7" fill="#9A96A8"/>
+      <!-- left pupil -->
+      <circle cx="322" cy="227" r="3.5" fill="#0A0818"/>
+      <!-- light catch -->
+      <circle cx="319" cy="224" r="1.8" fill="#E8E4F0" opacity="0.7"/>
+
+      <!-- right eye socket shadow -->
+      <ellipse cx="380" cy="228" rx="24" ry="9" fill="#1A1650" opacity="0.35"/>
+      <!-- right eye — narrow, angular -->
+      <path d="M360,228 Q370,220 378,220 Q390,220 400,228 Q390,234 378,235 Q370,234 360,228 Z"
+            fill="#B8B4C4"/>
+      <!-- right iris -->
+      <ellipse cx="378" cy="227" rx="7" ry="7" fill="#9A96A8"/>
+      <!-- right pupil -->
+      <circle cx="378" cy="227" r="3.5" fill="#0A0818"/>
+      <!-- light catch -->
+      <circle cx="375" cy="224" r="1.8" fill="#E8E4F0" opacity="0.7"/>
+    </g>
+
+    <!-- brows — sharp, angular -->
+    <path d="M292,208 Q305,200 335,205" stroke="#151040" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M365,205 Q395,200 408,208" stroke="#151040" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+    <!-- nose — angular, subtle -->
+    <path d="M348,240 L345,275 Q342,285 348,288 Q354,285 352,275 Z"
+          fill="#201C58" opacity="0.3"/>
+
+    <!-- mouth — the smirk. left corner up. -->
+    <path d="M318,320 Q330,325 350,322 Q370,318 388,315"
+          stroke="#2E2868" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- left corner uptick -->
+    <path d="M315,319 Q312,314 314,310"
+          stroke="#2E2868" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- jaw line definition -->
+    <path d="M280,305 Q285,325 295,345 Q310,365 340,375"
+          stroke="#1E1A50" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M420,305 Q415,325 405,345 Q390,365 360,375"
+          stroke="#1E1A50" stroke-width="1.5" fill="none" opacity="0.3"/>
+
+    <!-- ears — just suggestions -->
+    <path d="M272,220 Q262,225 260,245 Q262,265 272,268"
+          stroke="#201C55" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M428,220 Q438,225 440,245 Q438,265 428,268"
+          stroke="#201C55" stroke-width="2" fill="none" opacity="0.3"/>
+
+  </g><!-- end wob filter group -->
+
+  <!-- === THE HAND AND GLASS === -->
+  <g filter="url(#wobsoft)">
+
+    <!-- forearm emerging from coat sleeve -->
+    <path d="M530,700 Q545,690 555,675 L575,650 Q585,640 590,635"
+          stroke="url(#skin)" stroke-width="18" fill="none" stroke-linecap="round"/>
+
+    <!-- hand — the fingers are too long -->
+    <path d="M575,650 Q580,640 582,630 L584,615 Q585,605 583,600"
+          stroke="#201C58" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M582,648 Q586,636 590,622 L593,608 Q594,598 592,593"
+          stroke="#201C58" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M588,652 Q594,640 598,628 L600,618 Q601,610 599,606"
+          stroke="#201C58" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M593,658 Q598,648 602,638 L603,630"
+          stroke="#1E1A55" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+
+    <!-- thumb curving around the stem -->
+    <path d="M570,655 Q565,645 568,635 L572,625"
+          stroke="#201C58" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+    <!-- fingertips are teal -->
+    <circle cx="583" cy="598" r="3.5" fill="#1A5858"/>
+    <circle cx="592" cy="591" r="3.2" fill="#1A5858"/>
+    <circle cx="599" cy="604" r="3" fill="#1A5858"/>
+    <circle cx="603" cy="628" r="2.8" fill="#1A5858"/>
+    <circle cx="572" cy="623" r="3.2" fill="#1A5858"/>
+
+    <!-- wine glass — stem -->
+    <line x1="595" y1="700" x2="595" y2="650" stroke="#C8C0B8" stroke-width="3" opacity="0.6"/>
+
+    <!-- glass base -->
+    <ellipse cx="595" cy="702" rx="28" ry="6" fill="none" stroke="#C8C0B8" stroke-width="2" opacity="0.5"/>
+
+    <!-- glass bowl -->
+    <path d="M553,680 Q550,650 560,630 Q575,615 595,613
+             Q615,615 630,630 Q640,650 637,680 Z"
+          fill="none" stroke="#C8C0B8" stroke-width="2" opacity="0.5"/>
+
+    <!-- the wine — the void, in a glass -->
+    <clipPath id="wineclip">
+      <path d="M556,680 Q553,655 563,638 Q577,625 595,623
+               Q613,625 627,638 Q637,655 634,680 Z"/>
+    </clipPath>
+    <g clip-path="url(#wineclip)">
+      <rect x="550" y="640" width="90" height="45" fill="url(#wine)"/>
+      <!-- surface of the wine — slight curve -->
+      <path d="M556,643 Q595,638 634,643" stroke="#2A1860" stroke-width="1.5" fill="none" opacity="0.5"/>
+    </g>
+
+    <!-- stars in the wine -->
+    <g clip-path="url(#wineclip)" opacity="0.85">
+      <circle cx="580" cy="655" r="1.2" fill="#E8E0FF"/>
+      <circle cx="600" cy="650" r="0.9" fill="#D0C8F0"/>
+      <circle cx="610" cy="662" r="1" fill="#E0D8F8"/>
+      <circle cx="588" cy="665" r="0.7" fill="#C8C0E8"/>
+      <circle cx="575" cy="660" r="1.1" fill="#F0E8FF"/>
+      <circle cx="605" cy="655" r="0.6" fill="#D8D0F0"/>
+      <circle cx="595" cy="648" r="1.3" fill="#E8E0FF"/>
+    </g>
+
+    <!-- wine glow — the void glows faintly through the glass -->
+    <ellipse cx="595" cy="660" rx="30" ry="18" fill="#4020A0" opacity="0.08" filter="url(#wineglow)"/>
+  </g>
+
+  <!-- === WARM LIGHT === -->
+  <!-- lamp glow from the left, catching the jaw and collar -->
+  <ellipse cx="180" cy="350" rx="250" ry="300" fill="#D4A050" opacity="0.04" filter="url(#glow)"/>
+
+  <!-- subtle edge light on left jaw -->
+  <path d="M282,260 Q278,290 285,320 Q290,340 300,355"
+        stroke="#D4A050" stroke-width="2" fill="none" opacity="0.15"/>
+
+</svg>
